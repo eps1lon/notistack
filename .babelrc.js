@@ -1,6 +1,6 @@
-{
+module.exports = {
   "presets": [
-    "@babel/env",
+    ["@babel/env", { modules: process.env.BABEL_ENV === 'esm' ? false : 'commonjs' }],
     "@babel/react"
   ],
   "plugins": [

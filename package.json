@@ -3,7 +3,9 @@
     "version": "0.8.6",
     "description": "Highly customizable notification snackbars (toasts) that can be stacked on top of each other",
     "main": "build/index.js",
+    "module": "build/esm/index.js",
     "types": "build/index.d.ts",
+    "sideEffects": false,
     "license": "MIT",
     "author": {
         "name": "Hossein Dehnokhalaji",
@@ -16,7 +18,9 @@
         "type": "git"
     },
     "scripts": {
-        "transpile": "babel src -d build --copy-files",
+        "transpile:cjs": "babel src -d build --copy-files",
+        "transpile:esm": "cross-env BABEL_ENV=esm babel src -d build/esm --copy-files",
+        "transpile": "yarn transpile:cjs && yarn transpile:esm",
         "prepublishOnly": "npm run transpile",
         "eslint": "eslint . --ext .js,.jsx"
     },
@@ -37,6 +41,7 @@
         "@material-ui/core": "^3.2.0",
         "babel-eslint": "^10.0.1",
         "babel-loader": "^8.0.6",
+        "cross-env": "^5.2.0",
         "eslint": "^5.3.0",
         "eslint-config-airbnb": "^17.0.0",
         "eslint-plugin-import": "^2.13.0",
