@@ -1,11 +1,11 @@
 {
   "presets": [
-    "env",
-    "react",
-    "stage-2"
+    "@babel/env",
+    "@babel/react"
   ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-react-jsx"
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    "@babel/transform-react-jsx"
   ]
 }
